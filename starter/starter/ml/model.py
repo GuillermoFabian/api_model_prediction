@@ -1,4 +1,9 @@
+import numpy as np
+import logging
 from sklearn.metrics import fbeta_score, precision_score, recall_score
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import cross_val_score
+from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 
 
 # Optional: implement hyperparameter tuning.
@@ -18,7 +23,13 @@ def train_model(X_train, y_train):
         Trained machine learning model.
     """
 
-    pass
+    rfc = RandomForestClassifier(n_estimators=10, random_state=42)
+    scores = np.array(cross_val_score(
+        rfc, X_train, y_train, cv=5, scoring='f1_macro'))
+    rfc.fit(X_train, y_train)
+    logging.info('f1_macro mean: %.3f' % (np.mean(scores)))
+    print(np.mean(scores))
+    return rfc
 
 
 def compute_model_metrics(y, preds):
@@ -57,4 +68,4 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    pass
+    return model.predict(X)
