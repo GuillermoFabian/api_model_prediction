@@ -51,7 +51,8 @@ async def predict(data: Census):
         encoder = load(os.path.join(
             os.getcwd(), "starter/model/encoder.joblib"))
     except FileNotFoundError:
-        encoder = load(os.path.join(os.getcwd(), "starter/model/encoder.joblib"))
+        encoder = load(os.path.join(os.getcwd(),
+                                    "starter/model/encoder.joblib"))
 
     try:
         lb = load(os.path.join(
