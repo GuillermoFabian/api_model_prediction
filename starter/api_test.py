@@ -15,7 +15,7 @@ data = {
 
 }
 response = requests.post(
-    'https://url/predict', json=data)
+    'https://fast-api-deploy-app.herokuapp.com/predict', json=data)
 
 assert response.status_code == 200
 
