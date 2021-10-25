@@ -1,6 +1,6 @@
 import pandas as pd
 from joblib import load
-from ml.data import process_data
+from .ml.data import process_data
 import pytest
 import os
 
@@ -11,11 +11,12 @@ def data():
     Get the training data
     """
     try:
+        print(os.getcwd() , 'path ---------------------------------------------------')
         df = pd.read_csv(os.path.join(
-            os.getcwd(), "starter/data/census_train_cleaned.csv"))
+            os.getcwd(), "starter/data/census_data_cleaned.csv"))
     except FileNotFoundError:
         df = pd.read_csv(os.path.join(
-            os.getcwd(), "data/census_train_cleaned.csv"))
+            os.getcwd(), "data/census_cleaned.csv"))
 
     return df
 

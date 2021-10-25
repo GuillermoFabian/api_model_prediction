@@ -43,21 +43,21 @@ async def predict(data: Census):
 
     try:
         model = load(os.path.join(
-            os.getcwd(), "model/model.joblib"))
+            os.getcwd(), "starter/model/model.joblib"))
     except FileNotFoundError:
-        model = load(os.path.join(os.getcwd(), "model/model.joblib"))
+        model = load(os.path.join(os.getcwd(), "starter/model/model.joblib"))
 
     try:
         encoder = load(os.path.join(
-            os.getcwd(), "model/encoder.joblib"))
+            os.getcwd(), "starter/model/encoder.joblib"))
     except FileNotFoundError:
-        encoder = load(os.path.join(os.getcwd(), "model/encoder.joblib"))
+        encoder = load(os.path.join(os.getcwd(), "starter/model/encoder.joblib"))
 
     try:
         lb = load(os.path.join(
-            os.getcwd(), "model/lb.joblib"))
+            os.getcwd(), "starter/model/lb.joblib"))
     except FileNotFoundError:
-        lb = load(os.path.join(os.getcwd(), "model/lb.joblib"))
+        lb = load(os.path.join(os.getcwd(), "starter/model/lb.joblib"))
 
     data = data.dict(by_alias=True)
     df = DataFrame(data, index=[0])
