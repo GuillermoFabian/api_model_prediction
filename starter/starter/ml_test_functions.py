@@ -11,7 +11,6 @@ def data():
     Get the training data
     """
     try:
-        print(os.getcwd() , 'path ---------------------------------------------------')
         df = pd.read_csv(os.path.join(
             os.getcwd(), "starter/data/census_data_cleaned.csv"))
     except FileNotFoundError:
