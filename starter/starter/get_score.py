@@ -30,8 +30,7 @@ def get_score():
 
             y_preds = trained_model.predict(X_test)
 
-            prc, rcl, fb = compute_model_metrics(y_test,
-                                                                  y_preds)
+            prc, rcl, fb = compute_model_metrics(y_test, y_preds)
 
             line = ("Precision {:2.2f}, Recall {:2.2f}, F1 {:2.2f}".format(
                 prc, rcl, fb))
