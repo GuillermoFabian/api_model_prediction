@@ -28,6 +28,18 @@ def train_model(X_train, y_train):
     rfc.fit(X_train, y_train)
     logging.info('f1_macro mean: %.3f' % (np.mean(scores)))
     print(np.mean(scores))
+
+    scores = np.array(cross_val_score(
+        rfc, X_train, y_train, cv=5, scoring='precision'))
+    rfc.fit(X_train, y_train)
+    logging.info('Precision mean: %.3f' % (np.mean(scores)))
+    print(np.mean(scores))
+
+    scores = np.array(cross_val_score(
+        rfc, X_train, y_train, cv=5, scoring='recall'))
+    rfc.fit(X_train, y_train)
+    logging.info('Recall mean: %.3f' % (np.mean(scores)))
+    print(np.mean(scores))
     return rfc
 
 

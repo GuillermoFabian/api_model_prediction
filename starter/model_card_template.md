@@ -17,7 +17,8 @@ The test was data used for evaluation and readings given for precision, recall a
 
 
 ## Metrics
-The data set is unbalanced. The f1-score was used to determine performance
+The data set is unbalanced. The f1-score was used to determine performance.
+Fbeta: 0.725 , Precision: 0.634, Recall: 0.529
 ## Ethical Considerations
 It may contain personal and sensible information
 

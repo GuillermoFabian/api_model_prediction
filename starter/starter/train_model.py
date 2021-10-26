@@ -4,6 +4,9 @@ from sklearn.model_selection import train_test_split
 from joblib import dump
 from .ml.data import process_data
 from .ml.model import train_model as tr
+from .ml.model import compute_model_metrics
+import logging
+
 
 
 # Add the necessary imports for the starter code.
@@ -26,14 +29,21 @@ def train_model():
         "sex",
         "native-country",
     ]
+
+    categories = list(test.select_dtypes(include='object').columns)[:-1]
+
+    print(categories)
+
     X_train, y_train, encoder, lb = process_data(
         train, categorical_features=cat_features, label="salary", training=True
     )
+
 
     # Proces the test data with the process_data function.
 
     # Train and save a model.
     model = tr(X_train, y_train)
+
 
     dump(model, "model/model.joblib")
     dump(encoder, "model/encoder.joblib")

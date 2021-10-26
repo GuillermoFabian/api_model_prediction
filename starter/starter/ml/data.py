@@ -67,6 +67,7 @@ def process_data(
         X_categorical = encoder.fit_transform(X_categorical)
         y = lb.fit_transform(y.values).ravel()
     else:
+        print(X_categorical)
         X_categorical = encoder.transform(X_categorical)
         try:
             y = lb.transform(y.values).ravel()
